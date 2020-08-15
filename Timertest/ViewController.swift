@@ -22,13 +22,12 @@ class ViewController: UIViewController {
     }
     
     func startTimer(){
-        
+        //
         self.timer = Timer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
         RunLoop.current.add(self.timer!, forMode: .default)
 
         DispatchQueue.global(qos: .background).async {
             self.timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update2), userInfo: nil, repeats: true)
-            RunLoop.current.add(self.timer2!, forMode: .default)
             RunLoop.current.run()
         }
         
